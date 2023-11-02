@@ -4,9 +4,9 @@ El programa contempla dos tipos de interfaces, una para las personas que habrán
 
 ## Personas
 Interfaz netamente para ser usada por los clientes/usuarios que necesiten obtener un turno. Esta funcionalidad permite el ingreso de los datos del cliente para agregar en la base de datos; los datos requeridos son:
-  - Tipo de documento
+  - Tipo de documento (CC/TI)
   - Número de documento
-  - ¿Atención preferencial?
+  - ¿Atención preferencial? (S/N)
 
 ### ¿Cómo se generan?
   Una vez entregados los datos del cliente, se genera un número de turno que se conformará por una letra seguida de dos números, ej: A00.
