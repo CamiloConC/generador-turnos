@@ -3,13 +3,12 @@ Simple programa realizado en PSeInt, para simular un generador de turnos del tip
 El programa contempla dos tipos de interfaces, una para las personas que habrán de solicitar un turno y otra para los empleados del establecimiento.
 
 ## Personas
-Interfaz netamente para ser usada por los clientes/usuarios que necesiten obtener un turno.
-### Generación de turnos
-  Esta funcionalidad permite el ingreso de los datos del cliente para agregar en la base de datos; los datos requeridos son:
+Interfaz netamente para ser usada por los clientes/usuarios que necesiten obtener un turno. Esta funcionalidad permite el ingreso de los datos del cliente para agregar en la base de datos; los datos requeridos son:
   - Tipo de documento
   - Número de documento
   - ¿Atención preferencial?
 
+### ¿Cómo se generan?
   Una vez entregados los datos del cliente, se genera un número de turno que se conformará por una letra seguida de dos números, ej: A00.
   El turno se asignará según las siguientes condiciones:
   1. En orden alfabéticamente descendente y numéricamente ascendente (A a Z, 00 a 99)
@@ -24,16 +23,16 @@ Para el acceso a la interfaz de empleados se ingresará con usuario y contraseñ
 Para cada turno se guardan 5 atributos: Tipo documento, Número documento, Atención preferencial (S/N), Turno, Estado (Asignado/Atendido).
 
 - **Consulta por ID:**
-   Se requiere el número de documento de un cliente a consultar, muestra todos los atributos del cliente
+   se requiere el número de documento de un cliente a consultar, muestra todos los atributos del cliente
    
 - **Consulta por Turno:**
-   Según el turno ingresado, muestra los atributos del cliente
+   según el turno ingresado, muestra los atributos del cliente
    
 - **Ver los turnos:**
-   Muestra el historial de todos los turnos almacenados
+   muestra el historial de todos los turnos almacenados
    
 - **Últimos turnos:**
-   Muestra error/opción no disponible
+   muestra error/opción no disponible
 
 ## Limitaciones
 Debido a que PSeInt es un pseudocódigo y no un lenguaje de programación real, no se establece una fiel relación con alguna base de datos, por lo tanto, todos los datos almacenados durante la ejecución del código, son guardados de forma temporal en la memoria. Lo que significa que al finalizar la ejecución, con ello también se eliminan todos los datos y secuencia de turnos guardados.
