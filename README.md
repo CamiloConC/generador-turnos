@@ -34,6 +34,5 @@ Para cada turno se guardan 5 atributos: Tipo documento, Número documento, Atenc
    muestra error/opción no disponible
 
 ## Limitaciones
-Debido a que PSeInt es un pseudocódigo y no un lenguaje de programación real, no se establece una fiel relación con alguna base de datos, por lo tanto, todos los datos almacenados durante la ejecución del código, son guardados de forma temporal en la memoria. Lo que significa que al finalizar la ejecución, con ello también se eliminan todos los datos y secuencia de turnos guardados.<br>
-<hr size="1px" noshade="noshade">
+Debido a que PSeInt es un pseudocódigo y no un lenguaje de programación real, no se establece una fiel relación con alguna base de datos, por lo tanto, todos los datos almacenados durante la ejecución del código, son guardados de forma temporal en la memoria. Lo que significa que al finalizar la ejecución, con ello también se eliminan todos los datos y secuencia de turnos guardados.
 Desarrollado por: <a href="https://www.linkedin.com/in/camiloconc/">Camilo Sánchez</a>
