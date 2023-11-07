@@ -1,5 +1,5 @@
 # Generador de turnos
-Simple programa realizado en PSeInt, para simular un generador de turnos del tipo que se encuentra en bancos o entidades que ofrezcan variedad de tipos de atención al público. El programa contempla dos tipos de interfaces, una para las personas que habrán de solicitar un turno y otra para los empleados del establecimiento.
+Código realizado en PSeInt, para simular un generador de turnos del tipo que se encuentra en bancos o entidades que ofrezcan variedad de tipos de atención al público. El programa contempla dos tipos de interfaces, una para las personas que habrán de solicitar un turno y otra para los empleados del establecimiento.
 
 ## Personas
 Interfaz netamente para ser usada por los clientes/usuarios que necesiten obtener un turno. Esta funcionalidad permite el ingreso de los datos del cliente para agregar en la base de datos; los datos requeridos son:
