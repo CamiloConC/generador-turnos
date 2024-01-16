@@ -1,0 +1,71 @@
+* body {
+    background: #eee;
+}
+
+.spacing-10px {
+    display: block;
+    padding: 0px 10px;
+    width: 100%;
+}
+
+.principal {
+    background-color: #fff;
+    box-shadow: 0px 2px 10px rgb(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    display: block;
+    padding: 10px;
+    height: fit-content;
+    min-width: 250px;
+    max-width: 300px;
+    margin: 10px auto;
+}
+
+input.t_documento {
+    border-radius: 0px 5px 5px 0px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none
+}
+
+.blur-background {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border: 10px solid red;
+    background-color: rgb(255 255 255/ 0.3);
+    backdrop-filter: blur(100px);
+
+}
+
+.ventana-turno-A {
+    box-shadow: 0px 2px 10px rgb(0, 0, 0, 0.5);
+    border-radius: 10px;
+    border: 1px solid gray;
+    display: block;
+    text-align: left;
+    transform: translate(50%, -50%);
+    width: 50%;
+    top: 0px;
+    padding: 15px;
+    position: absolute;
+}
+
+.ventana-turno {
+    background-color: #fff;
+    box-shadow: 0px 2px 10px rgb(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid gray;
+
+    position: relative;
+    justify-items: center;
+    display: grid;
+    text-align: left;
+    margin: auto;
+    width: fit-content;
+}
