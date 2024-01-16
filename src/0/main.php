@@ -10,17 +10,6 @@ if (isset($_POST['submit'])) {
     $documento = $_POST['documento'];
     $t_atencion = isset($_POST['t_atencion']) ? 'preferencial' : 'normal';
 
-
-    // Here should be the toast alarm to see the new Turn ??????????
-    // -------------------------------------------------------------
-    echo "
-    <p>Los datos enviados fueron:<br>
-        * t. documento: <b>$t_documento</b><br>
-        * documento: <b>$documento</b><br>
-        * t. atención: <b>$t_atencion</b><br>
-    </p>";
-    // -------------------------------------------------------------
-
     try {
         $dbh = new PDO($DB_INFO, $DB_USERNAME, $DB_PASSWORD);
 
@@ -30,13 +19,9 @@ if (isset($_POST['submit'])) {
                 WHERE t_atencion = :t_atencion
                 ORDER BY id DESC, fecha DESC
                 LIMIT 1;";
-        
-// $query = "SELECT CONCAT(letra, LPAD(numero, 3, 0)) AS turno, t_atencion FROM turno
-// WHERE t_atencion = 'preferencial'
-// ORDER BY fecha DESC, turno DESC
-// LIMIT 1;";
+
         $sth = $dbh -> prepare($query);
-        $sth -> bindParam(':t_atencion', $t_atencion);
+        $sth -> bindValue(':t_atencion', $t_atencion);
         $sth -> setFetchMode(PDO::FETCH_ASSOC);
         $sth -> execute();
 
@@ -45,17 +30,31 @@ if (isset($_POST['submit'])) {
         $lastLetter = $lastTurn['letra'];
         $lastNumber = $lastTurn['numero'];
 
-        echo "<br>
-        $lastLetter<br>
-        $lastNumber<br>";
-        
+        // Saves the new turn assigned according to the last one by its 't_atencion' type
+        $newTurn = getNewTurn($t_atencion, $lastLetter, $lastNumber);
+
+        $query = "INSERT INTO turno (t_documento, documento, letra, numero, t_atencion)
+                VALUES ('$t_documento', $documento, '$newTurn[0]', '$newTurn[1]', '$t_atencion');";
+
+        $sth = $dbh -> prepare($query);
+        $sth -> execute();
+
+
         $dbh = null;
         $sth = null;
-        //$lastTurn = getLastTurn($t_atencion);
-        //echo $lastTurn;
-    
-    }
-    catch(PDOException $e) {
+
+        $newTurn = $newTurn[0] . sprintf('%03d', $newTurn[1]);
+
+        echo "
+        <div class='principal'>
+            <center>
+                <h4>$t_documento - $documento</h4>
+                <h1>".$newTurn."</h1>
+            </center>
+        </div>
+        ";
+
+    } catch(PDOException $e) {
         echo "
             <br>
             <div class='spacing-10px'>
@@ -65,6 +64,14 @@ if (isset($_POST['submit'])) {
                 </p>
             </div>";
     }
+
+} else {
+    echo "
+    <center>
+        <p class=0spacing-10px;>
+            Digite los datos y luego oprimar el botón 'enviar'.
+        </p>
+    </center>";
 }
 
 
@@ -84,16 +91,15 @@ function getNewTurn($t_atencion, $letra, $numero) {
             }
         } else {
             // 'chr()' converts code ascii to text
-            
             // 'ord()' converts text to code ascii
             $letra = chr(ord($letra) + 1);
         }
         $numero = 0;
     }
-    session_start();
+    if($letra =='') {
+        $letra = 'A';
+    }
+    $newTurn = array($letra, $numero);
+    return $newTurn;
 }
-
-
-
-
 ?>
