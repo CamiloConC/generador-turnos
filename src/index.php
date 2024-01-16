@@ -58,7 +58,7 @@
     </div>
 
     <script src=0/main.js></script>
-    <?php require('0/a.php'); ?>
+    <?php require('0/main.php'); ?>
 
 </body>
 </html>
