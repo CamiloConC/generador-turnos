@@ -12,3 +12,7 @@ function switch_preferencial() {
         preferencial.innerHTML = 'No';
     }
 }
+
+function togglePopup() {
+    document.getElementById('popup-1').classList.toggle('inactive');
+}
