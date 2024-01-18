@@ -16,20 +16,21 @@
         <hr>
     </div>
 
+    
     <div class="principal">
         <h3 class="d-flex justify-content-center z-1">Bienvenido</h3>
         <form action="" method="POST" accept-charset="utf-8" class="row g-3" autocomplete="off">
             <div class="form-group z-1">
                 <label for="documento" class="form-label">Documento *</label>
                 <div class="input-group">
-                    <select id="t_documento" name="t_documento" class="form-select" length="10" required>
+                    <select id="t_documento" name="t_documento" class="form-select" required>
                         <option value="CC" selected>CC</option>
                         <option value="CE">CE</option>
                         <option value="TI">TI</option>
                         <option value="PP">PP</option>
                     </select>
                     <div class="col-8 z-1">
-                        <input class="form-control t_documento" id="documento" name="documento" type="number" min="0" minlength="7" maxlength="10" required>
+                        <input class="form-control t_documento" id="documento" name="documento" type="number" min="1" max="9999999999" required>
                     </div>
                 </div>
                 <small class="text-muted" id="validation_message"></small>
@@ -46,15 +47,9 @@
             </div>
 
             <div class="d-flex justify-content-center z-1">
-                <button type="submit" name="submit" id="submit" class="btn btn-primary">Imprimir</button>
+                <button type="submit" name="submit" id="submit" class="btn btn-primary" onClick="togglePopup">Imprimir</button>
             </div>
         </form>
-    </div>
-    <!-- <div class="ventana-turno z-9">
-        <span id="documento"></span>
-        <span id="turno"></span>
-        <button class="btn btn-primary">Aceptar</button>
-    </div> -->
     </div>
 
     <script src=0/main.js></script>
